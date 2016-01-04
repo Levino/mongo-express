@@ -1,19 +1,18 @@
-# mongo-express
+### mongo-express
 
-A dockerized [mongo-express](https://github.com/andzdroid/mongo-express) for viewing MongoDB in the browser
+A dockerized [mongo-express](https://github.com/andzdroid/mongo-express) for managing a MongoDB database in the browser.
 
-## How to run this container
+### How to run this container
 
 	docker run -it --rm \
-		--name mongo-express \
 		--link NAME_OF_MONGODB_CONTAINER:mongo \
 		knickers/mongo-express
 
 `--link` is the key here, where you link your MongoDB container into the mongo-express container.
 
-### Additional configuration Options
+#### Additional configuration Options
 
-Environment variables can be passed to the `run` command for configuring your MongoDB instance
+Environment variables can be passed to the `run` command for configuring your mongo-express container
 
 	Name                            | Default   | Description
 	--------------------------------|-----------|------------
@@ -23,7 +22,8 @@ Environment variables can be passed to the `run` command for configuring your Mo
 	ME_CONFIG_MONGODB_ADMINPASSWORD | ''        | MongoDB admin password
 	ME_CONFIG_MONGODB_PORT          | 27017     | MongoDB port
 	ME_CONFIG_MONGODB_SERVER        | 'mongo'   | MongoDB container name
-	ME_CONFIG_OPTIONS_EDITORTHEME   | 'default' | mongo-express editor color theme [more here](http://codemirror.net/demo/theme.html)
+	ME_CONFIG_OPTIONS_EDITORTHEME   | 'default' | mongo-express editor color theme, [more here](http://codemirror.net/demo/theme.html)
+	ME_CONFIG_REQUEST_SIZE          | '100kb'   | Maximum payload size. CRUD operations above this size will fail in [body-parser](https://www.npmjs.com/package/body-parser).
 
 #### Example
 
@@ -33,9 +33,7 @@ Environment variables can be passed to the `run` command for configuring your Mo
 		-e ME_CONFIG_OPTIONS_EDITORTHEME="ambiance" \
 		knickers/mongo-express
 
-If you have [tianon/rawdns](https://github.com/tianon/rawdns) running, this container will be accessible at:
-
-`http://mongo-express.docker:8081`
+This container can be accessed at `http://localhost:8081`, or `http://mongo-express.docker:8081` if you have [tianon/rawdns](https://github.com/tianon/rawdns) running.
 
 ### Note from the mongo-express developers:
 

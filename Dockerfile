@@ -10,7 +10,7 @@ RUN set -x \
 	&& tini -h \
 	&& apt-get purge --auto-remove -y ca-certificates curl
 
-ENV MONGO_EXPRESS 0.23.3
+ENV MONGO_EXPRESS 0.28.4
 
 RUN npm install mongo-express@$MONGO_EXPRESS
 
@@ -18,6 +18,7 @@ WORKDIR /node_modules/mongo-express
 
 COPY config.js config.js
 
+ENV ME_CONFIG_EDITORTHEME="default"
 ENV ME_CONFIG_MONGODB_SERVER="mongo"
 ENV ME_CONFIG_BASICAUTH_USERNAME=""
 ENV ME_CONFIG_BASICAUTH_PASSWORD=""
