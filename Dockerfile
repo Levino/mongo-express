@@ -16,11 +16,12 @@ RUN npm install mongo-express@$MONGO_EXPRESS
 
 WORKDIR /node_modules/mongo-express
 
-RUN cp config.default.js config.js
+COPY config.js config.js
 
 ENV ME_CONFIG_MONGODB_SERVER="mongo"
 ENV ME_CONFIG_BASICAUTH_USERNAME=""
 ENV ME_CONFIG_BASICAUTH_PASSWORD=""
+ENV ME_CONFIG_PORT=8081
 
 EXPOSE 8081
 CMD ["tini", "--", "node", "app"]
