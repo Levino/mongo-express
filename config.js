@@ -23,17 +23,7 @@ module.exports = {
 
         // >>>>  If you are using regular accounts, fill out auth details in the section below
         // >>>>  If you have admin auth, leave this section empty and skip to the next section
-        auth: [
-            /*
-             * Add the the name, the username, and the password of the databases you want to connect to
-             * Add as many databases as you want!
-             {
-             database: 'test',
-             username: 'user',
-             password: 'pass'
-             }
-             */
-        ],
+        auth: JSON.parse(process.env.ME_CONFIG_AUTH),
 
 
         //  >>>>  If you are using an admin mongodb account, or no admin account exists, fill out section below
