@@ -5,7 +5,8 @@ if (typeof process.env.MONGODB_PORT === 'string') {
     process.env.ME_CONFIG_MONGODB_SERVER = mongoConnection.hostname;
     process.env.ME_CONFIG_MONGODB_PORT = mongoConnection.port;
 }
-
+console.log(process.env.ME_CONFIG_MONGODB_AUTH);
+console.log(JSON.parse(process.env.ME_CONFIG_MONGODB_AUTH)[0].database);
 module.exports = {
     mongodb: {
         server: process.env.ME_CONFIG_MONGODB_SERVER || 'localhost',
