@@ -18,7 +18,7 @@ module.exports = {
         //set admin to true if you want to turn on admin features
         //if admin is true, the auth list below will be ignored
         //if admin is true, you will need to enter an admin username/password below (if it is needed)
-        admin: true,
+        admin: (process.env.ME_CONFIG_ADMIN_MODE === "true"),
 
 
         // >>>>  If you are using regular accounts, fill out auth details in the section below
